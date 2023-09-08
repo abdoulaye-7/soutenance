@@ -1,0 +1,11 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="container my-5"></div>
+    <h1>Question Details</h1>
+    <p>Question: {{ question.question }}</p>
+    {% if answered %}
+        <p>Answer: {{ answer.answer }}</p>
+    {% else %}
+        <a href="{% url 'create-answer' question.id %}"><button>Answer it!</button></a>
+    {% endif %}
+{% endblock content %}

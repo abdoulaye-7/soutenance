@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+  <div class="row py-5"></div>
+<div class="row">
+  <div class="col-10"><h2>la liste des années academiques</h2></div>
+  <div class="col"><a href="{% url 'createAnnee' %}" class="btn btn-success">Ajouter</a></div>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="d-flex">
+      <th class="col-10">annee acad</th>
+      <th class="col-2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for annAcad in annAcads %}
+    <tr class="d-flex">
+      <td class="col-10">{{annAcad.annee_acad}}</td>
+      <td class="col-2"><a href="{% url 'updateAnnee' annAcad.id %}" class="btn btn-primary"><i class='fas fa-pen'></i></a>
+        <a href="{% url 'deleteAnnee' annAcad.id %}" class="btn btn-danger"><i class='far fa-trash-alt'></i></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</div>
+
+
+{% endblock content %} {% endcomment %}

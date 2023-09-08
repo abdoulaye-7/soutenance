@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+  <div class="row py-5"></div>
+<div class="row">
+  <div class="col-10"><h2>la liste des administratifs</h2></div>
+  <div class="col"><a href="{% url 'createAdministratif' %}" class="btn btn-success">Ajouter</a></div>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="d-flex">
+      <th class="col-2">nom</th>
+      <th class="col-2">prenom</th>
+      <th class="col-3">email</th>
+      <th class="col-2">tel</th>
+      <th class="col-1">annEmploi</th>
+      <th class="col-2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for administratif in administratifs %}
+    <tr class="d-flex">
+      <td class="col-2">{{administratif.nom}}</td>
+      <td class="col-2">{{administratif.prenom}}</td>
+      <td class="col-3">{{administratif.email}}</td>
+      <td class="col-2">{{administratif.tel}}</td>
+      <td class="col-1">{{administratif.annEmploi}}</td>
+      <td class="col-2"><a href="{% url 'update' administratif.id %}" class="btn btn-primary"><i class='fas fa-pen'></i></a>
+        <a href="{% url 'delete' administratif.id %}" class="btn btn-danger"><i class='far fa-trash-alt'></i></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</div>
+
+
+{% endblock content %} {% endcomment %}

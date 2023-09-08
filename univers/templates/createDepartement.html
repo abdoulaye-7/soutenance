@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+
+   <!-- Formulaire d'ajout d'un administratif -->
+   <form method="post">
+    {% csrf_token %}
+        {{departement_form.nom_departement}}
+
+        <button type="submit">Ajouter</button>
+    </form>
+</div>
+{% endblock content %} {% endcomment %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5" class="col-6 offset-3">
+	Supprimer une classe |
+	<p>Veux-tu supprimer la classe : <strong>{{classe}}</strong>?</p>
+	<a href="{% url 'home' %}"> Annuler</a>
+		<form method="post">
+			{% csrf_token %}
+			<input type="submit" value="Confirmer">
+		</form>
+</div>
+{% endblock content %}
+
+ {% endcomment %}

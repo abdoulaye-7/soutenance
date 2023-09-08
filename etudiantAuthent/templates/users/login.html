@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'plateforme/css/main.css' %}">
+        <title>Login</title>
+    </head>
+    <body>
+    <h1 class="text-primary text-center">Login</h1>
+
+        {% comment %} <div class="container"> <div class="row"> <div class="col-md-6"> <div class="card"> <form onsubmit="event.preventDefault()" class="box" action="{% url 'login' %}" method="POST"> {% csrf_token %}
+             <h1>Login</h1> <p class="text-muted"> Please enter your login and password!</p> <input type="text" name="" placeholder="Username"> <input type="password" name="" placeholder="Password"> <a class="forgot text-muted" href="#">Forgot password?</a> <input type="submit" name="" value="Login" href="#"> <div class="col-md-12"> <ul class="social-network social-circle"> <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li> <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li> <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li> </ul> </div> </form> </div> </div> </div>
+    </div> {% endcomment %}
+
+
+        <form action="{% url 'login' %}" method="POST" class="col-6 offset-3 border border-primary my-5 py-5 rounded">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary ">login</button>
+            </div>
+        </form>
+
+
+
+
+        <p>Not yet registered!</p>
+        <a href="{% url 'student-signup' %}">Signup as Student</a><br>
+        <a href="{% url 'teacher-signup' %}">Signup as Teacher</a><br>
+        <a href="{% url 'adminis-signup' %}">Signup as Adminis</a><br>
+</html>

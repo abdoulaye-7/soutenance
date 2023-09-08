@@ -1,0 +1,11 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="container my-5"></div>
+    <h1>Lesson Details</h1>
+    <p>Lesson: {{ lesson.lesson }}</p>
+    {% if commented %}
+        <p>Comment: {{ comment.comment }}</p>
+    {% else %}
+        <a href="{% url 'create-comment' lesson.id %}"><button>Comment it!</button></a>
+    {% endif %}
+{% endblock content %}

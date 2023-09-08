@@ -1,0 +1,11 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="container my-5"></div>
+    <h1>Submit Comment</h1>
+    <p>Lesson: {{ lesson.lesson }}</p>
+    <form action="{% url 'create-comment' lesson.id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit Comment">
+    </form>
+{% endblock content %}

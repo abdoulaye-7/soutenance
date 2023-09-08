@@ -1,0 +1,12 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="container my-5"></div>
+    <h1>Lesson View</h1>
+    <p>Lesson: {{ lesson.lesson }}</p>
+    <h2>Comments:</h2>
+    <ul>
+    {% for coms in comments %}
+        <li>{{ coms.student }} - {{ coms.comment }}</li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

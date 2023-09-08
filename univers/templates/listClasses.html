@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+  <div class="row py-5"></div>
+<div class="row">
+  <div class="col-10"><h2>la liste des classes</h2></div>
+  <div class="col"><a href="{% url 'createClasse' %}" class="btn btn-success">Ajouter</a></div>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="d-flex">
+      <th class="col-2">classe</th>
+      <th class="col-2">filiere</th>
+      <th class="col-3">niveau</th>
+      <th class="col-2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for classe in classes %}
+    <tr class="d-flex">
+      <td class="col-2">{{classe.nom_classe}}</td>
+      <td class="col-2">{{classe.ID_Filiere}}</td>
+      <td class="col-3">{{classe.ID_niveau}}</td>
+      <td class="col-2"><a href="{% url 'updateClasse' classe.id %}" class="btn btn-primary"><i class='fas fa-pen'></i></a>
+        <a href="{% url 'delete' classe.id %}" class="btn btn-danger"><i class='far fa-trash-alt'></i></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+
+{% endblock content %} {% endcomment %}

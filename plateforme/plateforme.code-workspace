@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../classmanager-student-teacher-portal"
+		},
+		{
+			"path": "../../../../../../../xampp/htdocs/BCDI"
+		}
+	],
+	"settings": {}
+}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+  <div class="row py-5"></div>
+    <div class="row">
+        <div class="col-10"><h2>la liste des filieres</h2></div>
+        <div class="col-2"><a href="{% url 'createFiliere' %}" class="btn btn-success">Ajouter</a></div>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="d-flex">
+            <th class="col-6">filiere</th>
+            <th class="col-4">departement</th>
+            <th class="col-2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for filiere in filieres %}
+            <tr class="d-flex">
+            <td class="col-6">{{filiere.nom_filiere}}</td>
+            <td class="col-4">{{filiere.ID_Departement}}</td>
+            <td class="col-2"><a href="{% url 'updateFiliere' filiere.id %}" class="btn btn-primary"><i class='fas fa-pen'></i></a>
+                <a href="{% url 'deleteFiliere' filiere.id %}" class="btn btn-danger"><i class='far fa-trash-alt'></i></a>
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock content %} {% endcomment %}

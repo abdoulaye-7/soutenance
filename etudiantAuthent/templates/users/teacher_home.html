@@ -1,0 +1,21 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="container my-5"></div>
+    <h1>Teacher Homepage</h1>
+
+    <a href="{% url 'create-lesson' %}"><button>Create Lesson</button></a>
+    <ul>
+    {% for sons in lessons %}
+        <li>{{ sons.lesson|truncatewords:20 }} - <a href="{% url 'teacher-lesson-detail' sons.id %}">Read More</a></li>
+    {% endfor %}
+    </ul>
+
+{% comment %} ******************create question************* {% endcomment %}
+
+    <a href="{% url 'create-question' %}"><button>Create Question</button></a>
+    <ul>
+    {% for ques in questions %}
+        <li>{{ ques.question|truncatewords:20 }} - <a href="{% url 'teacher-question-detail' ques.id %}">Read More</a></li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

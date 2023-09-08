@@ -1,0 +1,22 @@
+{% extends "base2.html" %}
+{% block content %}
+<body>
+    <div class="container my-5 ">
+        <h1 class="text-center">Student Homepage</h1>
+        <ul>
+            {% for sons in lessons %}
+                <li>{{ sons.lesson|truncatewords:20 }} - <a href="{% url 'student-lesson-detail' sons.id %}">regarder le commentaire</a></li>
+            {% endfor %}
+            </ul>
+
+{% comment %} ***********************list for questions********************** {% endcomment %}
+        <ul>
+            {% for ques in questions %}
+                <li>{{ ques.question|truncatewords:20 }} - <a href="{% url 'student-question-detail' ques.id %}">regarder la reponse</a></li>
+            {% endfor %}
+            </ul>
+    </div>
+</body>
+</html>
+
+{% endblock content %}

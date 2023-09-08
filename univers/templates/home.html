@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+
+  <main role="main">
+
+<!-- Formulaire d'ajout d'un administratif -->
+<div class="card">
+  <div class="card-header">
+      <h1 class="text-center">voici ma page d'accueil/h1>
+  </div>
+  <p class="text-center my-5">le memoire m'est tres <strong> difficil</strong></p>
+  {% comment %} <div class="card-body">
+    <form method="post">
+      {% csrf_token %}
+          {{administratif_form.nom}}
+          <button type="submit">Ajouter</button>
+    </form>
+    <ol>
+      {% for administratif in administratifs %}
+        <li>
+                  {{administratif.nom}}
+              | <a href="{% url 'update' administratif.id %}">Modifier</a>
+              | <a href="{% url 'delete' administratif.id %}">Supprimer</a>
+        </il>
+      {% endfor %}
+  </ol> {% endcomment %}
+{% endblock content %}
+
+
+{% comment %} {% extends 'base.html' %}
+{% block title %}
+  Mes tâches |
+{% endblock title %}
+{% block content %}
+    <h1>Hello, this is my first ToDo App using Django!</h1>
+    <form method="post">
+    {% csrf_token %}
+        {{task_form.title}}
+        <button type="submit">Ajouter</button>
+    </form>
+    <ol>
+        {% for task in tasks %}
+        	<li>
+				{% if task.completed == True %}
+                    <strike> {{task.title}} </strike>
+                {% else %}
+                    {{task.title}}
+                {% endif %}
+                | <a href="{% url 'update' task.id %}">Modifier</a>
+                | <a href="{% url 'delete' task.id %}">Supprimer</a>
+        	</il>
+        {% endfor %}
+    </ol>
+{% endblock content %} {% endcomment %}
+
+
+{% comment %} ******************liste {% endcomment %}
+{% comment %} <h4 class="bg-secondary text-light py-2 rounded text-center">la liste des administratifs</h4> {% endcomment %}
+  {% comment %} <table class="table table-hover">
+    <thead>
+      <tr class="d-flex">
+        <th class="col-2">nom</th>
+        <th class="col-2">prenom</th>
+        <th class="col-3">email</th>
+        <th class="col-2">tel</th>
+        <th class="col-1">annEmploi</th>
+        <th class="col-2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for administratif in administratifs %}
+      <tr class="d-flex">
+        <td class="col-2">{{administratif.nom}}</td>
+        <td class="col-2">{{administratif.prenom}}</td>
+        <td class="col-3">{{administratif.email}}</td>
+        <td class="col-2">{{administratif.tel}}</td>
+        <td class="col-1">{{administratif.annEmploi}}</td>
+        <td class="col-2"><a href="{% url 'update' administratif.id %}" class="btn btn-primary"><i class='fas fa-pen'></i></a>
+          <a href="{% url 'delete' administratif.id %}" class="btn btn-danger"><i class='far fa-trash-alt'></i></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table> {% endcomment %}
+{% comment %} </main> {% endcomment %}
+
+    {% comment %} <ol>
+      {% for administratif in administratifs %}
+          <li>{{administratif.nom}}</li>
+          <li>{{administratif.prenom}}</li>
+          <li>{{administratif.email}}</li>
+          <li>{{administratif.tel}}</li>
+          <li>{{administratif.annEmploi}}</li>
+      {% endfor %}
+  </ol>
+
+</div> {% endcomment %}
+{% comment %} {% endblock content %}  {% endcomment %}

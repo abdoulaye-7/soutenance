@@ -1,0 +1,12 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="container my-5"></div>
+    <h1>Question View</h1>
+    <p>Question: {{ question.question }}</p>
+    <h2>Answers:</h2>
+    <ul>
+    {% for ans in answers %}
+        <li>{{ ans.student }} - {{ ans.answer }}</li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

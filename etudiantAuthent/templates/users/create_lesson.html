@@ -1,0 +1,10 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="container my-5"></div>
+    <h1>Create Lesson</h1>
+    <form action="{% url 'create-lesson' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create Lesson">
+    </form>
+{% endblock content %}
